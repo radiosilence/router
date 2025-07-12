@@ -20,21 +20,21 @@ export default defineConfig({
       prerender: {
         // Enable prerendering
         enabled: true,
+        // By default, html files will be named the the same as their route, so `my-page.tsx` would become
+        // `/my-page.html`. However, in order to have a URL path like `/my-page`, it should be an index
+        // inside a directory like so:
+        outputPath: (path) =>
+          path.endsWith('index') ? `${path}.html` : `${path}/index.html`,
       },
       // Optional configuration for specific pages—without this, it will still automatically
       // prerender all pages
       pages: [
         {
           path: '/my-page',
-          // By default, html files will be named the the same as their route, so `my-page.tsx` would become
-          // `/my-page.html`. However, in order to have a URL path like `/my-page`, it should be an index
-          // inside a directory like so:
-          prerender: { enabled: true, outputPath: '/my-page/index.html' },
+          // The outputPath can be overriden on a per-page basis
+          prerender: { enabled: true, outputPath: '/argh.html' },
         },
       ],
-      // Optional function to do the above globally as opposed to per-page
-      outputPath: (path) =>
-        path.endsWith('index') ? `${path}.html` : `${path}/index.html`,
     }),
   ],
 })
