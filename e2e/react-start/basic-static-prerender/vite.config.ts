@@ -11,7 +11,6 @@ export default defineConfig({
       projects: ['./tsconfig.json'],
     }),
     tanstackStart({
-      tsr: { verboseFileRoutes: false },
       pages: [
         {
           path: '/links',
