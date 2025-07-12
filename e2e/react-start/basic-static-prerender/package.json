@@ -1,5 +1,5 @@
 {
-  "name": "tanstack-react-start-e2e-basic",
+  "name": "tanstack-react-start-e2e-basic-static-prerender",
   "private": true,
   "sideEffects": false,
   "type": "module",
